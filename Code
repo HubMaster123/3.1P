@@ -22,11 +22,11 @@ void setup()
   Serial.begin(9600);
   while (!Serial);
 
-  // Initialize the I2C bus and BH1750 sensor
+  //Initialize the I2C bus and BH1750 sensor
   Wire.begin();
   lightMeter.begin();
 
-  // Connect to WiFi
+  //Connect to WiFi
   WiFi.begin(ssid, pass);
 
   while(WiFi.status()!= WL_CONNECTED)
@@ -57,9 +57,9 @@ void loop()
   Serial.print(reading);
   Serial.println("lx");
 
-  // Send HTTP request to IFTTT with light readings
+  //Send HTTP request to IFTTT with light readings
   sendIFTTT(PATH_NAME + query + String(reading));
-  // Send readings every  second
+  //Send readings every  second
   delay(1000);
 }
 
